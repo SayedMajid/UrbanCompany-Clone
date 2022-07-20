@@ -8,6 +8,7 @@ import {
   InputLeftElement,
   Button,
   SimpleGrid,
+  Flex,
   Portal,
   Popover,
   PopoverTrigger,
@@ -44,13 +45,13 @@ const services = [
   {
     img: "https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/categories/category_v2/category_6fbad370.png",
     title: "Plumbers & Carpenters",
-  }
+  },
 ];
 
 const Home = () => {
   return (
     <>
-    {/* Top Content */}
+      {/* Top Content */}
       <Box
         h="552px"
         bgImage="url('https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1615375782838-f890f8.jpeg')"
@@ -111,7 +112,7 @@ const Home = () => {
           </InputGroup>
         </Box>
       </Box>
-    {/* services box */}
+      {/* services box */}
       <Box w="100%" h="100%">
         <SimpleGrid
           columns={6}
@@ -121,6 +122,7 @@ const Home = () => {
           p="24px"
           rounded="md"
           bg="white"
+          boxShadow="xl"
         >
           {services.map((el) => (
             <Box
@@ -132,12 +134,9 @@ const Home = () => {
               display="flex"
               justifyContent="space-between"
               flexDirection="column"
-              _hover={{bg:"#e5e5e5"}}
+              _hover={{ bg: "#e5e5e5" }}
             >
-              <Box
-                w="fit-content"
-                alignSelf="center"
-              >
+              <Box w="fit-content" alignSelf="center">
                 <Image h="32px" w="32px" src={el.img} alt="myImage" />
               </Box>
               <Box
@@ -153,10 +152,241 @@ const Home = () => {
           ))}
         </SimpleGrid>
       </Box>
-    {/* Note Box */}
-    <Box border="1px solid black" p="24px">
-      
-    </Box>
+      {/* Carousel Image Box */}
+      <Flex
+        p="20px 0 64px"
+        mt="70px"
+        justifyContent="space-evenly"
+        borderBottom="16px solid #f2f4f6"
+      >
+        <Box transition="transform .2s" _hover={{ transform: "scale(1.10)" }}>
+          <Image
+            h="150px"
+            src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1657006546486-545754.jpeg"
+          />
+        </Box>
+        <Box transition="transform .2s" _hover={{ transform: "scale(1.10)" }}>
+          <Image
+            h="150px"
+            src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1657733512041-813a4c.jpeg"
+          />
+        </Box>
+        <Box transition="transform .2s" _hover={{ transform: "scale(1.10)" }}>
+          <Image
+            h="150px"
+            src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1657733511465-f22ed1.jpeg"
+          />
+        </Box>
+        <Box transition="transform .2s" _hover={{ transform: "scale(1.10)" }}>
+          <Image
+            h="150px"
+            src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1657733505075-80d1ba.jpeg"
+          />
+        </Box>
+        <Box transition="transform .2s" _hover={{ transform: "scale(1.10)" }}>
+          <Image
+            h="150px"
+            src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1657733505585-4d3fe3.jpeg"
+          />
+        </Box>
+      </Flex>
+      {/* Note Img */}
+      <Box borderBottom="16px solid #f2f4f6">
+        <Image
+          src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_2304/t_high_res_template/images/growth/luminosity/1645029066799-6c633b.jpeg"
+          alt="NoteImg"
+        />
+      </Box>
+      {/* Cleaning and Pest Control */}
+      <Box
+        display="flex"
+        flexDirection="column"
+        borderBottom="16px solid #f2f4f6"
+        p="50px 0 70px"
+        gap="3rem"
+      >
+        <Text
+          fontSize="32px"
+          fontWeight="700"
+          color="#212121"
+          textAlign="center"
+        >
+          Cleaning & Pest Control
+        </Text>
+        <Flex justifyContent={"center"} gap="2rem">
+          <Box>
+            <Box>
+              <Image
+                mb="20px"
+                transition="transform 0.4s"
+                _hover={{ transform: "scale(1.10)" }}
+                rounded="md"
+                h="180px"
+                w="300px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1625159882387-9585c7.jpeg"
+              />
+            </Box>
+            <Text
+              textAlign={"center"}
+              fontSize="14px"
+              color="#212121"
+              fontWeight="500"
+            >
+              Bathroom & Kitchen Cleaning
+            </Text>
+          </Box>
+          <Box>
+            <Box>
+              <Image
+                mb="20px"
+                transition="transform 0.4s"
+                _hover={{ transform: "scale(1.10)" }}
+                rounded="md"
+                h="180px"
+                w="300px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1630420912606-2fffa6.jpeg"
+              />
+            </Box>
+            <Text
+              textAlign={"center"}
+              fontSize="14px"
+              color="#212121"
+              fontWeight="500"
+            >
+              Sofa & Carpet Cleaning
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
+      {/* Home Repairs */}
+      <Box
+        display="flex"
+        flexDirection="column"
+        borderBottom="16px solid #f2f4f6"
+        p="50px 0 70px"
+        gap="3rem"
+      >
+        <Text
+          fontSize="32px"
+          fontWeight="700"
+          color="#212121"
+          textAlign="center"
+        >
+          Home Repairs
+        </Text>
+        <Flex justifyContent={"center"} gap="2rem">
+          <Box>
+            <Box>
+              <Image
+                mb="20px"
+                transition="transform 0.4s"
+                _hover={{ transform: "scale(1.10)" }}
+                rounded="md"
+                h="180px"
+                w="300px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/categories/home_screen/carpenter.jpg"
+              />
+            </Box>
+            <Text
+              textAlign={"center"}
+              fontSize="14px"
+              color="#212121"
+              fontWeight="500"
+            >
+              Home Furniture
+            </Text>
+          </Box>
+          <Box>
+            <Box>
+              <Image
+                mb="20px"
+                transition="transform 0.4s"
+                _hover={{ transform: "scale(1.10)" }}
+                rounded="md"
+                h="180px"
+                w="300px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/categories/home_screen/carpenter.jpg"
+              />
+            </Box>
+            <Text
+              textAlign={"center"}
+              fontSize="14px"
+              color="#212121"
+              fontWeight="500"
+            >
+              Carpenters
+            </Text>
+          </Box>
+          <Box>
+            <Box>
+              <Image
+                mb="20px"
+                transition="transform 0.4s"
+                _hover={{ transform: "scale(1.10)" }}
+                rounded="md"
+                h="180px"
+                w="300px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/categories/home_screen/electrician.jpg"
+              />
+            </Box>
+            <Text
+              textAlign={"center"}
+              fontSize="14px"
+              color="#212121"
+              fontWeight="500"
+            >
+              Electricians
+            </Text>
+          </Box>
+          <Box>
+            <Box>
+              <Image
+                mb="20px"
+                transition="transform 0.4s"
+                _hover={{ transform: "scale(1.10)" }}
+                rounded="md"
+                h="180px"
+                w="300px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/categories/home_screen/plumber.jpg"
+              />
+            </Box>
+            <Text
+              textAlign={"center"}
+              fontSize="14px"
+              color="#212121"
+              fontWeight="500"
+            >
+              Plumbers
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
+      {/* Insurance */}
+      <Box borderBottom="16px solid #f2f4f6">
+        <Image
+        h="90%"
+          src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_2304/t_high_res_template/categories/category_v2/category_a4e46fa0.png"
+          alt="insurance"
+        />
+      </Box>
+      {/* Some Policy */}
+      <Box borderBottom="16px solid #f2f4f6">
+        <Image
+          src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_2304/t_high_res_template/images/growth/home-screen/1624344861242-558286.png"
+          alt="insurance"
+        />
+      </Box>
+      {/* Skill India */}
+      <Box borderBottom="16px solid #f2f4f6">
+        <Image
+          src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_2304/t_high_res_template/categories/category_v2/category_3cffdf20.png"
+          alt="insurance"
+        />
+      </Box>
+      {/* Footer */}
+      <Box>
+        
+      </Box>
     </>
   );
 };
