@@ -22,7 +22,7 @@ const HomeHeader = () => {
 
   return (
     <>
-      <Flex h="60px"  justifyContent="space-around" p="1px">
+      <Flex h="60px"  justifyContent="space-around">
         <Flex w="1300px">
           <Box m="0 auto" display={"flex"} alignItems="center">
             <Image
