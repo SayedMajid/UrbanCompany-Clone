@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Image,
@@ -13,16 +13,22 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   Input,
+  Text,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import { Appcontext } from "../Context/Appcontext";
 
 const HomeHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
+  const { loginData, handleLoginChange, handleLogin, loginStatus , handleLogout} =
+    useContext(Appcontext);
+  console.log(loginStatus);
+
   return (
     <>
-      <Flex h="60px"  justifyContent="space-around">
+      <Flex h="60px" justifyContent="space-around">
         <Flex w="1300px">
           <Box m="0 auto" display={"flex"} alignItems="center">
             <Image
@@ -54,7 +60,7 @@ const HomeHeader = () => {
                 fontWeight="700"
                 color="#fff"
               >
-                Login / Sign Up
+                {loginStatus.loggedIn ? "User Logged In" : "Login / Sign Up"}
               </Box>
               <Drawer
                 isOpen={isOpen}
@@ -68,10 +74,33 @@ const HomeHeader = () => {
                   <DrawerHeader>Please Login To Continue</DrawerHeader>
 
                   <DrawerBody display="flex" flexDirection="column" gap="1rem">
-                    <Input placeholder="Your Phone Number" />
-                    <Button bg="black" color="white">
-                      Continue
-                    </Button>
+                    {loginStatus.loggedIn && (
+                      <Text textAlign="center" color="green">
+                        Logged In
+                      </Text>
+                    )}
+                    <Input
+                      placeholder="Your Email"
+                      name="email"
+                      type="email"
+                      value={loginData.email}
+                      onChange={handleLoginChange}
+                    />
+                    <Input
+                      placeholder="Your Password"
+                      name="password"
+                      type="password"
+                      value={loginData.password}
+                      onChange={handleLoginChange}
+                    />
+
+                    {!loginStatus.loggedIn ? (
+                      <Button bg="black" color="white" onClick={handleLogin}>
+                        Continue
+                      </Button>
+                    ) : (
+                      <Button onClick={handleLogout}>Logout</Button>
+                    )}
                   </DrawerBody>
                 </DrawerContent>
               </Drawer>

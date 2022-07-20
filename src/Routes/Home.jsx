@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Text,
@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import HomeHeader from "../Components/HomeHeader";
 import { TriangleDownIcon, SearchIcon } from "@chakra-ui/icons";
+import { Appcontext } from "../Context/Appcontext";
 
 const services = [
   {
@@ -126,6 +127,7 @@ const Home = () => {
         >
           {services.map((el) => (
             <Box
+              key={el.title}
               bg="white"
               w="128px"
               h="112px"
@@ -364,7 +366,7 @@ const Home = () => {
       {/* Insurance */}
       <Box borderBottom="16px solid #f2f4f6">
         <Image
-        h="90%"
+          h="90%"
           src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_2304/t_high_res_template/categories/category_v2/category_a4e46fa0.png"
           alt="insurance"
         />
@@ -384,9 +386,7 @@ const Home = () => {
         />
       </Box>
       {/* Footer */}
-      <Box>
-        
-      </Box>
+      <Box></Box>
     </>
   );
 };
