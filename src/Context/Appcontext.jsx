@@ -46,6 +46,8 @@ export const AppContextProvider = ({ children }) => {
     });
   };
 
+  const [cartItems, setCartItems] = useState([])
+
   return (
     <Appcontext.Provider
       value={{

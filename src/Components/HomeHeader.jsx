@@ -28,8 +28,8 @@ const HomeHeader = () => {
 
   return (
     <>
-      <Flex h="60px" justifyContent="space-around">
-        <Flex w="1300px">
+      <Flex h="60px" justifyContent="center" >
+        <Flex w="1300px" >
           <Box m="0 auto" display={"flex"} alignItems="center">
             <Image
               src="https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1631097450980-d2de38.png"

@@ -21,6 +21,9 @@ import {
 import HomeHeader from "../Components/HomeHeader";
 import { TriangleDownIcon, SearchIcon } from "@chakra-ui/icons";
 import { Appcontext } from "../Context/Appcontext";
+import HomeFooter from "../Components/HomeFooter";
+import {useNavigate} from "react-router-dom"
+
 
 const services = [
   {
@@ -50,6 +53,12 @@ const services = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const moveToMG = () => {
+    navigate("/MensGrooming")
+  }
+
   return (
     <>
       {/* Top Content */}
@@ -137,6 +146,7 @@ const Home = () => {
               justifyContent="space-between"
               flexDirection="column"
               _hover={{ bg: "#e5e5e5" }}
+              onClick={el.title === "Salon For Men" ? moveToMG : null}
             >
               <Box w="fit-content" alignSelf="center">
                 <Image h="32px" w="32px" src={el.img} alt="myImage" />
@@ -386,7 +396,9 @@ const Home = () => {
         />
       </Box>
       {/* Footer */}
-      <Box></Box>
+      <Box>
+        <HomeFooter />
+      </Box>
     </>
   );
 };
