@@ -13,9 +13,15 @@ import {
   Button,
   UnorderedList,
   ListItem,
+  Link,
+  Stack,
+  Container,
+  useColorModeValue,
+  VisuallyHidden,
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { RiShieldCheckFill } from "react-icons/ri";
+import { FaTwitter, FaYoutube, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const smallImg = [
   {
@@ -74,6 +80,14 @@ const packages = [
     list: ["Mens Haircut", "Beard Shape & Style", "10 min Head Massage"],
   },
 ];
+
+const ListHeader = ({ children }) => {
+  return (
+    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
+      {children}
+    </Text>
+  );
+};
 
 const MensGrooming = () => {
   const addToCart = (i) => {
@@ -182,8 +196,12 @@ const MensGrooming = () => {
           ))}
         </Flex>
         {/* Services and Tags */}
-        <Flex justifyContent={"space-between"}>
-          {/* Main Box */}
+        <Flex
+          justifyContent={"space-between"}
+          borderBottom="4px solid #ededed"
+          pb="50px"
+        >
+          {/*Services Main Box */}
           <Box
             w="59%"
             p="30px 10px 0px"
@@ -196,7 +214,7 @@ const MensGrooming = () => {
                 backgroundColor: `rgba(0, 0, 0, 0.05)`,
               },
               "&::-webkit-scrollbar-thumb": {
-                backgroundColor: `lightgreen`,
+                backgroundColor: `#ededed`,
                 borderRadius: `10px`,
               },
               "&::-webkit-scrollbar-track": {
@@ -481,9 +499,174 @@ const MensGrooming = () => {
                   </Text>
                 </Box>
               </Flex>
+              {/* Cart box here, make sure to hide it incase no items in cart */}
+              <Flex
+                boxSizing="border-box"
+                gap="0.5rem"
+                p="8px 22px"
+                rounded="md"
+                bg="white"
+                w="352px"
+                justifyContent="space-between"
+                align="center"
+              >
+                <Text fontSize="20px" color="#0f0f0f" fontWeight="bold" >&#8377; 499</Text>
+                <Button colorScheme="purple" p="24px 26px">View Cart</Button>
+              </Flex>
             </SimpleGrid>
           </Box>
         </Flex>
+        <Flex
+          borderBottom="4px solid #ededed"
+          justifyContent="space-between"
+          p="40px 0"
+        >
+          <Box w="60%" p="100px"></Box>
+          <center>
+            <Divider orientation="vertical" borderColor="blackAlpha.700" />
+          </center>
+          <Box w="40%" boxSizing="border-box" p="40px 0px 40px 60px">
+            <Text
+              fontSize="28px"
+              fontWeight="700"
+              color="rgba(15,15,15)"
+              lineHeight="30px"
+              mb="20px"
+            >
+              Salon For Men in Nashik, India
+            </Text>
+            <Text color="gray">
+              Tired of going to the salon after the office? Now avail men's
+              haircut even after 8.00pm, we offer our services till 9.30pm.
+              Avail men's grooming services like haricut, shave, moustache
+              grooming from out stylist at the convinience of your home. Our
+              4.5+ rated experts use branded , disposable and hygiene friendly
+              products. Book men's haricut services at home in Nashik, India. We
+              provide you wihh hygienic and mess-free experience. Our experts
+              make sure there is so hair left behind.
+            </Text>
+          </Box>
+        </Flex>
+        <Flex
+          borderBottom="4px solid #ededed"
+          justifyContent="space-between"
+          p="70px 0 50px"
+        >
+          <Box w="56%" boxSizing="border-box">
+            <Text fontSize="28px" mb="10px" fontWeight="700">
+              Quick Links
+            </Text>
+            <Text fontSize="22px" fontWeight="500">
+              Serving In
+            </Text>
+            <Box color="gray" mb="10px ">
+              Ludiana &bull; Kochi &bull; Nagpur &bull; Agra &bull; Bhopal
+              &bull; Guwahati &bull; Vijayawada &bull; Varanasi &bull;
+              Coimbatore &bull; Thiruvananthapuram &bull; Patna &bull; Raipur
+              &bull; Nashik &bull; Jabalpur &bull; Jamshedpur &bull; Dehradun
+              &bull; Merut &bull; Ranchi &bull; Prayagraj &bull; Amritsar &bull;
+              Gwalior &bull; Kota &bull; Aurangabad &bull; Mysore &bull; Guntur
+              &bull; Cuttack &bull; Udaipur &bull; Ahmedabad &bull; Bangalore
+              &bull; Chennai &bull; Delhi NCR &bull; Chandigarh Tricity &bull;
+              Jaipur &bull; Hyderabad &bull; Kolkata &bull; Mumbai &bull; Pune
+              &bull; Nagpur &bull; Visakhapatnam &bull; Vadodara &bull; Lucknow
+              &bull; Bhubaneshwar &bull; Surat &bull; Indore &bull; Rajamundry
+              &bull; Madurai &bull; Jodhpur &bull; Kakinada &bull; Warangal
+              &bull; Sonipat &bull; Panipat &bull; Karnal &bull; Rohtak &bull;
+              Alwar
+            </Box>
+            <Text fontSize="22px" fontWeight="500">
+              Also available in
+            </Text>
+            <Box color="gray" mb="10px ">
+              Salon For Men in Nashik, India
+            </Box>
+            <Text fontSize="22px" fontWeight="500">
+              Services offerred
+            </Text>
+            <Box color="gray" mb="10px ">
+              Salon at Home for Women in Nashik, India &bull; Plumbers in
+              Nashik, India &bull; Bathroom cleaning in Nashik, India &bull;
+              Salon Classic in Nashik, India &bull; Carpenters in Nashik, India
+              &bull; Salon For Men in Nashik, India &bull; Sofa & Carpet
+              cleaning in Nashik, India &bull; Electricians in Nashik, India
+              &bull; Ac video consult in Nashik, India &bull; Refrigerator Video
+              Consult in Nashik, India
+            </Box>
+          </Box>
+        </Flex>
+        {/* Footer Section here */}
+        <Box>
+          <Box bg={"#f5f5f5"} color={useColorModeValue("gray.700", "gray.200")}>
+            <Box px={5} pt={5}>
+              <Image
+                h="44px"
+                w="148px"
+                src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648471968852-1f2b01.png"
+              />
+            </Box>
+            <Container as={Stack} maxW={"6xl"} py={10}>
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+                <Stack align={"flex-start"}>
+                  <ListHeader>Company</ListHeader>
+                  <Link href={"#"}>About Us</Link>
+                  <Link href={"#"}>Terms & Conditions</Link>
+                  <Link href={"#"}>Privacy Policy</Link>
+                  <Link href={"#"}>Anti-Discriminatory Policy</Link>
+                  <Link href={"#"}>UC Impact</Link>
+                  <Link href={"#"}>Careers</Link>
+                </Stack>
+
+                <Stack align={"flex-start"}>
+                  <ListHeader>For Customers</ListHeader>
+                  <Link href={"#"}>UC Review</Link>
+                  <Link href={"#"}>Categories near you</Link>
+                  <Link href={"#"}>Blog</Link>
+                  <Link href={"#"}>Contact Us</Link>
+                </Stack>
+
+                <Stack align={"flex-start"}>
+                  <ListHeader>For Partners</ListHeader>
+                  <Link href={"#"}>Register as a professional</Link>
+                </Stack>
+
+                <Box align={"flex-start"}>
+                  <ListHeader>Install App</ListHeader>
+                    <Stack direction={"row"} spacing={6} mb="20px" mt="20px">
+                      <FaTwitter />
+                      <FaFacebook />
+                      <FaInstagram />
+                      <FaLinkedin />
+                    </Stack>       
+                  <Image
+                    h="36px"
+                    w="108px"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648463870745-38fece.png"
+                  />
+                  <Image h="36px" w="108px" mt="20px" src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648463880397-b2cc52.svg" />
+                </Box>
+              </SimpleGrid>
+            </Container>
+
+            <Box
+              borderTopWidth={1}
+              borderStyle={"solid"}
+              borderColor={useColorModeValue("gray.200", "gray.700")}
+            >
+              <Container
+                as={Stack}
+                maxW={"6xl"}
+                py={4}
+                direction={{ base: "column", md: "row" }}
+                spacing={4}
+                justify={{ md: "space-between" }}
+                align={{ md: "center" }}
+              >
+                <Text>©  Copyright 2022 Urban Company. All rights reserved.</Text>
+              </Container>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </>
   );
