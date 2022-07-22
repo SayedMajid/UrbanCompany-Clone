@@ -56,6 +56,8 @@ export const AppContextProvider = ({ children }) => {
         handleLogin,
         loginStatus,
         handleLogout,
+        cartItems,
+        setCartItems
       }}
     >
       {children}

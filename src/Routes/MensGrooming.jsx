@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Flex,
@@ -21,7 +21,15 @@ import {
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { RiShieldCheckFill } from "react-icons/ri";
-import { FaTwitter, FaYoutube, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaYoutube,
+  FaInstagram,
+  FaLinkedin,
+  FaFacebook,
+} from "react-icons/fa";
+import { Appcontext } from "../Context/Appcontext";
+import { useNavigate } from "react-router-dom";
 
 const smallImg = [
   {
@@ -61,7 +69,7 @@ const packages = [
   {
     name: "Haircut + Massage",
     rating: "4.82 (258.7K)",
-    price: "599",
+    price: "399",
     time: "50 mins",
     list: ["Mens Haircut", "20 min Head Massage"],
   },
@@ -90,9 +98,22 @@ const ListHeader = ({ children }) => {
 };
 
 const MensGrooming = () => {
+  const { cartItems, setCartItems } = useContext(Appcontext);
+
   const addToCart = (i) => {
-    console.log(i);
+    let item = packages.filter((el, ind) => ind === i);
+
+    setCartItems([...cartItems, item[0]]);
   };
+
+  const price= cartItems.reduce((acc, el, i) => { return acc + Number(el.price) }, 0)
+  console.log(price)
+
+  const navigate = useNavigate();
+
+  const goToCart = () => {
+    navigate("/CartPage")
+  }
 
   return (
     <>
@@ -223,11 +244,7 @@ const MensGrooming = () => {
             }}
           >
             {/* Individual Box */}
-            <SimpleGrid
-              borderBottom="5px solid lightgray"
-              p="20px 0"
-              spacingY="60px"
-            >
+            <SimpleGrid p="20px 0" spacingY="60px">
               {packages.map((el, i) => (
                 <>
                   <Box>
@@ -273,7 +290,7 @@ const MensGrooming = () => {
                     {/* Price and hours */}
                     <Box mt="3px">
                       <Text fontSize="15px" fontWeight="700">
-                        &#8377; 499 &bull;{" "}
+                        &#8377; {el.price} &bull;{" "}
                         <Text as="span" color="gray" fontWeight="thin">
                           {el.time}
                         </Text>{" "}
@@ -500,19 +517,25 @@ const MensGrooming = () => {
                 </Box>
               </Flex>
               {/* Cart box here, make sure to hide it incase no items in cart */}
-              <Flex
-                boxSizing="border-box"
-                gap="0.5rem"
-                p="8px 22px"
-                rounded="md"
-                bg="white"
-                w="352px"
-                justifyContent="space-between"
-                align="center"
-              >
-                <Text fontSize="20px" color="#0f0f0f" fontWeight="bold" >&#8377; 499</Text>
-                <Button colorScheme="purple" p="24px 26px">View Cart</Button>
-              </Flex>
+              {cartItems.length !== 0 && (
+                <Flex
+                  boxSizing="border-box"
+                  gap="0.5rem"
+                  p="8px 22px"
+                  rounded="md"
+                  bg="white"
+                  w="352px"
+                  justifyContent="space-between"
+                  align="center"
+                >
+                  <Text fontSize="20px" color="#0f0f0f" fontWeight="bold">
+                    &#8377; {price}
+                  </Text>
+                  <Button colorScheme="purple" p="24px 26px" onClick={goToCart}>
+                    View Cart
+                  </Button>
+                </Flex>
+              )}
             </SimpleGrid>
           </Box>
         </Flex>
@@ -632,18 +655,23 @@ const MensGrooming = () => {
 
                 <Box align={"flex-start"}>
                   <ListHeader>Install App</ListHeader>
-                    <Stack direction={"row"} spacing={6} mb="20px" mt="20px">
-                      <FaTwitter />
-                      <FaFacebook />
-                      <FaInstagram />
-                      <FaLinkedin />
-                    </Stack>       
+                  <Stack direction={"row"} spacing={6} mb="20px" mt="20px">
+                    <FaTwitter />
+                    <FaFacebook />
+                    <FaInstagram />
+                    <FaLinkedin />
+                  </Stack>
                   <Image
                     h="36px"
                     w="108px"
                     src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648463870745-38fece.png"
                   />
-                  <Image h="36px" w="108px" mt="20px" src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648463880397-b2cc52.svg" />
+                  <Image
+                    h="36px"
+                    w="108px"
+                    mt="20px"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648463880397-b2cc52.svg"
+                  />
                 </Box>
               </SimpleGrid>
             </Container>
@@ -662,7 +690,9 @@ const MensGrooming = () => {
                 justify={{ md: "space-between" }}
                 align={{ md: "center" }}
               >
-                <Text>©  Copyright 2022 Urban Company. All rights reserved.</Text>
+                <Text>
+                  © Copyright 2022 Urban Company. All rights reserved.
+                </Text>
               </Container>
             </Box>
           </Box>
