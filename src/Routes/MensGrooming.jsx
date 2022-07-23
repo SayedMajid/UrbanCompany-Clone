@@ -58,37 +58,6 @@ const smallImg = [
   },
 ];
 
-const packages = [
-  {
-    name: "Haircut + Beard Grooming + Massage",
-    rating: "4.81 (243.1K)",
-    price: "499",
-    time: "1 hr 5 mins",
-    list: ["Mens Haircut", "Beard Shape & Style", "10 min Head Massage"],
-  },
-  {
-    name: "Haircut + Massage",
-    rating: "4.82 (258.7K)",
-    price: "399",
-    time: "50 mins",
-    list: ["Mens Haircut", "20 min Head Massage"],
-  },
-  {
-    name: "Father & Kids Haircut",
-    rating: "4.82 (232.9K)",
-    price: "499",
-    time: "1 hr 10 mins",
-    list: ["Mens Haircut", "Kids Haircut(Boys)", "10 min Head Massage"],
-  },
-  {
-    name: "Haircut + Hair Color",
-    rating: "4.82 (243.1K)",
-    price: "499",
-    time: "60 mins",
-    list: ["Mens Haircut", "Beard Shape & Style", "10 min Head Massage"],
-  },
-];
-
 const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
@@ -98,18 +67,18 @@ const ListHeader = ({ children }) => {
 };
 
 const MensGrooming = () => {
-  const { cartItems, setCartItems } = useContext(Appcontext);
+  const { cartItems, setCartItems , price, packages} = useContext(Appcontext);
+
+  const navigate = useNavigate();
 
   const addToCart = (i) => {
     let item = packages.filter((el, ind) => ind === i);
-
     setCartItems([...cartItems, item[0]]);
   };
 
-  const price= cartItems.reduce((acc, el, i) => { return acc + Number(el.price) }, 0)
-  console.log(price)
-
-  const navigate = useNavigate();
+  const goToHomePage = () => [
+    navigate("/")
+  ]
 
   const goToCart = () => {
     navigate("/CartPage")
@@ -128,6 +97,7 @@ const MensGrooming = () => {
             fontWeight="semibold"
           >
             <Image
+              onClick={goToHomePage}
               h="40px"
               w="40px"
               src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/images/supply/customer-app-supply/1648463875565-a4ce06.svg"

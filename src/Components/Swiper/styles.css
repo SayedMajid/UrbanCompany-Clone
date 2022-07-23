@@ -1,0 +1,11 @@
+.external-buttons {
+  overflow: hidden; 
+}
+
+.swiperImage{
+  transition: transfrom .1s;
+}
+
+.swiperImage:hover{
+  transform: scale(1.10);
+}
