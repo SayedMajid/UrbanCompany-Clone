@@ -22,8 +22,8 @@ import HomeHeader from "../Components/HomeHeader";
 import { TriangleDownIcon, SearchIcon } from "@chakra-ui/icons";
 import { Appcontext } from "../Context/Appcontext";
 import HomeFooter from "../Components/HomeFooter";
-import {useNavigate} from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
+import Carousel from "../Components/Swiper/Carousel";
 
 const services = [
   {
@@ -56,8 +56,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   const moveToMG = () => {
-    navigate("/MensGrooming")
-  }
+    navigate("/MensGrooming");
+  };
 
   return (
     <>
@@ -165,7 +165,10 @@ const Home = () => {
         </SimpleGrid>
       </Box>
       {/* Carousel Image Box */}
-      <Flex
+      <Box p="20px 0 64px" mt="70px">
+        <Carousel />
+      </Box>
+      {/* <Flex
         p="20px 0 64px"
         mt="70px"
         justifyContent="space-evenly"
@@ -201,7 +204,7 @@ const Home = () => {
             src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1657733505585-4d3fe3.jpeg"
           />
         </Box>
-      </Flex>
+      </Flex> */}
       {/* Note Img */}
       <Box borderBottom="16px solid #f2f4f6">
         <Image
