@@ -83,7 +83,6 @@ const CartPage = () => {
           ) : (
             cartItems.map((el, i) => (
               <Box
-                border="1px dashed black"
                 p="10px 8px"
                 boxSizing="border-box"
               >

@@ -1,16 +1,24 @@
 import React from "react";
 import { Appcontext } from "../Context/Appcontext";
 import { Box, Container, Text, Image, Flex, Divider, TableContainer, Thead, Tbody, Table, Tr, Td, Th  } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const OrderConfirm = () => {
   const { user, cartItems } = React.useContext(Appcontext);
 
   console.log(user, cartItems);
 
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate("/")
+  }
+
+  const finalPrice = cartItems.reduce((acc, el) => { return acc + el.price * el.qty },0)
+
   return (
     <Box bg="blackAlpha.800" h="100%" pt="20px">
       <Container border="1px solid black" maxW="xl" h="100vh" bg="white" p="0">
-        <Box>
+        <Box onClick={handleClick}>
           <Text
             fontSize={"4xl"}
             align="center"
@@ -48,7 +56,7 @@ const OrderConfirm = () => {
                 <Tr>
                   <Td>1</Td>
                   <Td>Items</Td>
-                  <Td isNumeric>450</Td>
+                  <Td isNumeric>{finalPrice}</Td>
                 </Tr>
                 <Tr>
                   <Td>2</Td>
@@ -63,7 +71,7 @@ const OrderConfirm = () => {
                 <Tr>
                   <Td>Total</Td>
                   <Td></Td>
-                  <Td isNumeric>517</Td>
+                  <Td isNumeric>{finalPrice + 49 + 18}</Td>
                 </Tr>
               </Tbody>
             </Table>

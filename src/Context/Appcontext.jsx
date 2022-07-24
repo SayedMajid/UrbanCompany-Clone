@@ -35,10 +35,10 @@ export const AppContextProvider = ({ children }) => {
   const handleLogin = (e) => {
     e.preventDefault();
     fetch("https://reqres.in/api/login", {
-      mode : "no-cors",
+      // mode : "no-cors",
       method: "POST",
       headers: { "content-type": "application/json" },
-      headers :{"Access-Control-Allow-Origin" : "http://localhost:3000"},
+      // headers :{"Access-Control-Allow-Origin" : "http://localhost:3000"},
       body: JSON.stringify(loginData),
     })
       .then((res) => res.json())
