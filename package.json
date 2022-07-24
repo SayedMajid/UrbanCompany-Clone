@@ -47,5 +47,6 @@
   },
   "devDependencies": {
     "sass": "^1.54.0"
-  }
+  },
+  "homepage": "."
 }
