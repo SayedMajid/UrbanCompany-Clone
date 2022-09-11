@@ -11,3 +11,16 @@ This project was developed individually by me during the construct week , Module
   - React
   
 # Some of the screenshots of the project
+
+![FrontPage](https://raw.githubusercontent.com/SayedMajid/UrbanCompany-Clone/master/src/images/FrontPage.png)
+
+![footer](https://raw.githubusercontent.com/SayedMajid/UrbanCompany-Clone/master/src/images/footer.png)
+
+![productsPage](https://raw.githubusercontent.com/SayedMajid/UrbanCompany-Clone/master/src/images/productsPage.png)
+
+![checkoutPage](https://raw.githubusercontent.com/SayedMajid/UrbanCompany-Clone/master/src/images/checkoutPage.png)
+
+![orderConfirmation](https://raw.githubusercontent.com/SayedMajid/UrbanCompany-Clone/master/src/images/orderConfirmation.png)
+
+# Here is the deployed link of project
+  [UrbanCompany](https://urban-company-clone-ms.netlify.app/)
